@@ -1,9 +1,9 @@
 spring:
     datasource:
         driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://localhost:5432/postgres
-        username: postgres
-        password: root
+        url: awseb-e-7uu9p5mkvt-stack-awsebrdsdatabase-nmgpwszhsztf.crmc26mo4ysc.eu-north-1.rds.amazonaws.com
+        username: rootroot
+        password: rootroot
 springdoc:
     api-docs:
         path: "/api-docs"
