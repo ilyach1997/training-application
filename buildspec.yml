@@ -6,7 +6,7 @@ phases:
             java: corretto21
     build:
         commands:
-            - mvn -DskipTests=true install
+            - mvn -DskipTests=true clean package
 artifacts:
     files:
         - target/training-0.0.1-SNAPSHOT.jar
