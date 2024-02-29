@@ -1,0 +1,184 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /shoppingCart/{shoppingCartId}:
+    post:
+      tags:
+      - shopping-cart-controller
+      operationId: addProduct
+      parameters:
+      - name: shoppingCartId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /payment/{accountId}:
+    post:
+      tags:
+      - payment-controller
+      operationId: pay
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /shoppingCart/{accountId}:
+    get:
+      tags:
+      - shopping-cart-controller
+      operationId: getShoppingCart
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /products:
+    get:
+      tags:
+      - product-controller
+      operationId: getAllProducts
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /products/{id}:
+    get:
+      tags:
+      - product-controller
+      operationId: getProduct
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /products/name/{productName}:
+    get:
+      tags:
+      - product-controller
+      operationId: getAllProductsByName
+      parameters:
+      - name: productName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /products/category/{categoryName}:
+    get:
+      tags:
+      - product-controller
+      operationId: getAllProductsByCategory
+      parameters:
+      - name: categoryName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /shoppingCart/{shoppingCartId}/item/{cartItemId}:
+    delete:
+      tags:
+      - shopping-cart-controller
+      operationId: deleteFromShoppingCart
+      parameters:
+      - name: shoppingCartId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: cartItemId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        quantity:
+          type: integer
+          format: int32
+        cost:
+          type: number
+        photoUrl:
+          type: string
+        pdfUrl:
+          type: string

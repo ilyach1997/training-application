@@ -1,0 +1,16 @@
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://awseb-e-m4djqcbu2u-stack-awsebrdsdatabase-rqnwm0elzmbk.crmc26mo4ysc.eu-north-1.rds.amazonaws.com:5432/postgres
+        username: rootroot
+        password: rootroot
+springdoc:
+    api-docs:
+        path: "/api-docs"
+
+rsa:
+    private-key: classpath:cert/private.pem
+    public-key: classpath:cert/public.pem
+
+server:
+    port: 5000
